@@ -1,2 +1,2 @@
-# stfp-despliegue
+# sftp-despliegue
 Proyecto para subir ficheros a un servidor SFTP
