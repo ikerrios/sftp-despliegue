@@ -1,0 +1,20 @@
+services:
+  sftp:
+    image: atmoz/sftp
+    container_name: sftp-server
+    ports:
+      - "2222:22"
+    volumes:
+      - ./sftp-data:/home/usuario/uploads
+    command: usuario:password:1001:100:uploads
+
+  # Navegador de archivos web
+  filebrowser:
+    image: filebrowser/filebrowser
+    container_name: sftp-filebrowser
+    ports:
+      - "8090:80"
+    volumes:
+      - ./sftp-data:/srv
+    environment:
+      - FB_NOAUTH=true
