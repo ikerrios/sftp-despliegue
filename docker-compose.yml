@@ -5,8 +5,9 @@ services:
     ports:
       - "2222:22"
     volumes:
+      - ./ssh-keys/sftp_key.pub:/home/usuario/.ssh/keys/sftp_key.pub:ro
       - ./sftp-data:/home/usuario/uploads
-    command: usuario:password:1001:100:uploads
+    command: usuario::1001:100:uploads
 
   # Navegador de archivos web
   filebrowser:

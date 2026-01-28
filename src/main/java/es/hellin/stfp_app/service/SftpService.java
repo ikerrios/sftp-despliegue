@@ -5,6 +5,7 @@ import es.hellin.stfp_app.config.SftpConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+
 import java.io.File;
 import java.io.FileInputStream;
 
@@ -25,8 +26,12 @@ public class SftpService {
         try {
             // 1. Crear sesión SSH
             JSch jsch = new JSch();
+
+            jsch.addIdentity(config.getPrivateKeyPath(),config.getPrivateKeyPass());
             session = jsch.getSession(config.getUser(), config.getHost(), config.getPort());
-            session.setPassword(config.getPassword());
+
+            //session.setPassword(config.getPassword());
+
             session.setConfig("StrictHostKeyChecking", "no");
 
             logger.info("Conectando a {}@{}:{}", config.getUser(), config.getHost(), config.getPort());
