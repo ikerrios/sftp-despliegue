@@ -41,13 +41,6 @@
 			<version>0.1.55</version>
 		</dependency>
 
-		<!-- AÑADIR ESTA DEPENDENCIA -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
-		</dependency>
-
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
