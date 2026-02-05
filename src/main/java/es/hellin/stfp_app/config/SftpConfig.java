@@ -11,6 +11,7 @@ public class SftpConfig {
     private String host;
     private int port;
     private String user;
-    private String password;
+    private String privateKeyPath;
     private String remoteDirectory;
+    private String PrivateKeyPass;
 }

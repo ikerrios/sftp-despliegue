@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Subir Archivos SFTP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        
+        .success {
+            color: green;
+            border: 1px solid green;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        .error {
+            color: red;
+            border: 1px solid red;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        form {
+            margin-top: 20px;
+        }
+        
+        button {
+            margin-top: 10px;
+            padding: 5px 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Subir Archivos a SFTP</h1>
+
+    <div th:if="${successMessage}" class="success" th:text="${successMessage}"></div>
+    <div th:if="${errorMessage}" class="error" th:text="${errorMessage}"></div>
+
+    <form method="post" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <br>
+        <button type="submit">Subir Archivo</button>
+    </form>
+</body>
+</html>

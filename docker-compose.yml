@@ -1,14 +1,20 @@
+version: '3.8'
+
 services:
   sftp:
-    image: atmoz/sftp
+    image: atmoz/sftp:latest
     container_name: sftp-server
     ports:
       - "2222:22"
     volumes:
-      - ./sftp-data:/home/usuario/uploads
-    command: usuario:password:1001:100:uploads
+      # ⭐ NUEVO: Montar clave pública para autenticación
+      - ./ssh-keys/sftp_key.pub:/home/carlos/.ssh/keys/sftp_key.pub:ro
+      # Directorio para archivos subidos
+      - ./sftp-data:/home/carlos/uploads
+    # ⭐ CAMBIO: Password vacío (::) indica autenticación solo SSH
+    command: carlos::1001:1001
 
-  # Navegador de archivos web
+  # Navegador de archivos web (opcional)
   filebrowser:
     image: filebrowser/filebrowser
     container_name: sftp-filebrowser
